@@ -39,7 +39,7 @@ body {
 
 .grid__link {
 	position: relative;
-	z-index: 1;
+	/* z-index: 1; */
 	display: block;
 }
 
@@ -120,6 +120,7 @@ body {
 .isolayer--scroll1 .grid__item {
 	width: 300px;
 	padding: 15px;
+	float: left;
 }
 
 .isolayer--deco1 {
@@ -362,4 +363,16 @@ body {
 
 .js body.grid-loaded::after {
 	opacity: 0;
+}
+
+.grid{
+	position: relative;
+    width: 600px;
+    height: 10951px;
+    transform: translate3d(0px, 0px, 0px);
+}
+.isolayer{
+	position: fixed;
+    transform-style: preserve-3d;
+    transform: translateX(-15vw) translateY(275px) rotateX(45deg) rotateZ(45deg);
 }

@@ -3,7 +3,7 @@ import React from "react"
 import get from "lodash/get"
 import Helmet from "react-helmet"
 
-import "./index.css"
+import "./grid.scss"
 // import Bio from "../components/Bio"
 import Tile from "../components/Tile"
 // import { rhythm } from "../utils/typography"
@@ -27,8 +27,6 @@ class BlogIndex extends React.Component {
             return (
              
                   <Tile post={post.node} key={post.node.frontmatter.path}/>
-
-             
 
             )
           }
@@ -61,7 +59,7 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM, YYYY")
             cover {
               childImageSharp {
-                resize(width: 600, height: 400) {
+                resize(width: 378, height: 284) {
                   src
                 }
               }
