@@ -1,11 +1,13 @@
 .tile {
     width: 40%;
 	position: relative;
-	// z-index: 1;
-	a{
-		// z-index: 1;
-		position: relative;
-	}
+    // z-index: 1;
+    transform-style: preserve-3d;
+
+	// a{
+	// 	// z-index: 1;
+	// 	position: relative;
+	// }
     img {
 		// transition: all .15s cubic-bezier(.17, .67, .83, .67);
 		transition: all .250s ease-in-out;
