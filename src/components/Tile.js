@@ -12,7 +12,7 @@ class Tile extends React.Component {
   constructor(){
     super()
     this.state ={
-      lift:false,
+      lift:'',
       // lvl1: {points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}]}
       lv1: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
       lv2: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
@@ -37,6 +37,7 @@ class Tile extends React.Component {
   // }
   _mouseEnter(){
     this.setState ({
+      lift:'lift',
       lv1: 'matrix3d(0.999848, -0.0174524, 0, 0, 0.0174524, 0.999848, 0, 0, 0, 0, 1, 0, 0, 0, 150, 1)',
       lv2: 'matrix3d(0.999391, 0.0348995, 0, 0, 0.0348995, 0.999391, 0, 0, 0, 0, 1, 0, 0, 0, 100, 1)',
       lv3: 'matrix3d(0.999848, 0.0174524, 0, 0, 0.0174524, 0.999848, 0, 0, 0, 0, 1, 0, 0, 0, 30, 1)'
@@ -44,8 +45,9 @@ class Tile extends React.Component {
    }
    _mouseLeave(){
     this.setState ({
-      lv1: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
+      lift:'',
       lv2: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
+      lv1: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
       lv3: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)'
       // lv1:'',
       // lv2:'',
@@ -59,7 +61,7 @@ class Tile extends React.Component {
 
     return (
      
-      <div className="tile" 
+      <div className={`tile ${this.state.lift}`} 
         onMouseOver={this._mouseEnter.bind(this)}
         onMouseOut={this._mouseLeave.bind(this)}
           >
