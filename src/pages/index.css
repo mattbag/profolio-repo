@@ -1,0 +1,12 @@
+.grid{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    transform-style: preserve-3d;
+    transform: translate3d(0px, -604px, 0px);
+}
+.grid__wrap{
+    position: fixed;
+    transform-style: preserve-3d;
+    transform: translateX(-15vw) translateY(275px) rotateX(45deg) rotateZ(45deg);
+}
