@@ -48,13 +48,7 @@ class Template extends React.Component {
       )
     } else {
       header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-          }}
-        >
+
           <Link
             style={{
               boxShadow: 'none',
@@ -63,9 +57,9 @@ class Template extends React.Component {
             }}
             to={'/'}
           >
-            Gatsby Starter Blog
+          <Bio/>
           </Link>
-        </h3>
+
       )
     }
     return (
