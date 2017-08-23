@@ -4,15 +4,15 @@ import get from "lodash/get"
 import Helmet from "react-helmet"
 
 import "./grid.scss"
-// import Bio from "../components/Bio"
-import Tile from "../components/Tile"
+
+import Tile from "../components/tile/Tile"
 // import { rhythm } from "../utils/typography"
 
 class BlogIndex extends React.Component {
   constructor() {
     super()
     this.state = {
-      transformY: '-20',
+      transformY: '-40',
       gridHeight: ''
     }
     this.handleScroll = this.handleScroll.bind(this);
@@ -38,7 +38,7 @@ class BlogIndex extends React.Component {
     // let itemTranslate = Math.min(0, window.pageYOffset / 3 - 60);
     let itemTranslate = window.pageYOffset / 5;
     this.setState({
-      transformY: -itemTranslate - 20
+      transformY: -itemTranslate - 40
     });
     // console.log(window.pageYOffset)
   }
@@ -52,7 +52,7 @@ class BlogIndex extends React.Component {
 
         <div className="grid__wrap">
           <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
-          {/* <Bio /> */}
+         
           <div className="grid" style={{ transform: `translateY(${this.state.transformY}%)` }}>
             {posts.map(post => {
               if (post.node.path !== "/404/") {

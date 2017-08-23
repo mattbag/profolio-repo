@@ -1,34 +1,48 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { Container } from 'react-responsive-grid'
-
+import Bio from "../components/bio/Bio"
 import { rhythm, scale } from '../utils/typography'
-// import "./master.css"
+import "./master.scss"
+
 class Template extends React.Component {
   render() {
     const { location, children } = this.props
     let header
     if (location.pathname === '/') {
       header = (
-        <h1
-          style={{
-            ...scale(.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-            position: 'fixed'
-          }}
-        >
-          <Link
+
+        <header>
+          <h1
             style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
+              ...scale(.5),
+              marginBottom: rhythm(1.5),
+              marginTop: 0,
+              position: 'fixed'
             }}
-            to={'/'}
           >
-            Awesome!
+            <Link
+              style={{
+                boxShadow: 'none',
+                textDecoration: 'none',
+                color: 'inherit',
+              }}
+              to={'/'}
+            >
+              Awesome!
           </Link>
-        </h1>
+          <Link
+              style={{
+                boxShadow: 'none',
+                textDecoration: 'none',
+                color: 'inherit',
+              }}
+              to={'/'}
+            >
+              <Bio/>
+          </Link>
+          </h1>
+        </header>
       )
     } else {
       header = (
