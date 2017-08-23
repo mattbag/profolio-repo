@@ -15,18 +15,22 @@ class BlogIndex extends React.Component {
       transformY: '-20',
       gridHeight: ''
     }
+    this.handleScroll = this.handleScroll.bind(this);
   }
   componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll.bind(this));
-    setTimeout(() => { this.getHeight() });
+    document.addEventListener('scroll', this.handleScroll);
+    this.loadInterval = setTimeout(() => { this.getHeight() });
   }
+
   getHeight() {
     const _h = document.getElementsByClassName('grid')[0].offsetHeight;
     this.setState({ gridHeight: _h })
     // console.log(this.state.gridHeight)
   }
+
   componentWillUnmount() {
     document.removeEventListener('scroll', this.handleScroll);
+    clearTimeout(this.loadInterval);
   }
 
   handleScroll(event) {

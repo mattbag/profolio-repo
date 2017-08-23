@@ -229,6 +229,7 @@
 		itemLink.style.zIndex = item.style.zIndex = this.gridItemsTotal;
 		
 		subItems.forEach(function(subitem, pos) {
+			console.log(subitem, pos);
 			dynamics.stop(subitem);
 			dynamics.animate(subitem, self.options.stackItemsAnimation.properties(pos), self.options.stackItemsAnimation.options(pos, subItemsTotal));
 		});
