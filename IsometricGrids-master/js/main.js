@@ -194,6 +194,7 @@
 						self._scrollPage();
 					}
 				});
+				console.log('scrollo');
 			},
 			mouseenterHandler = function(ev) {
 				self._expandSubItems(ev.target);

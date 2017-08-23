@@ -17,13 +17,6 @@ class Tile extends React.Component {
       lv1: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
       lv2: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
       lv3: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)'
-      // lv1:'',
-      // lv2:'',
-      // lv3:'',
-      // lv1: 'matrix3d(0.999848, -0.0174524, 0, 0, 0.0174524, 0.999848, 0, 0, 0, 0, 1, 0, 0, 0, 150, 1)',
-      // lv2: 'matrix3d(0.999391, -0.0348995, 0, 0, 0.0348995, 0.999391, 0, 0, 0, 0, 1, 0, 0, 0, 100, 1)',
-      // lv3: 'matrix3d(0.999848, -0.0174524, 0, 0, 0.0174524, 0.999848, 0, 0, 0, 0, 1, 0, 0, 0, 50, 1)'
-
     }
   }
   // componentWillMount(){
@@ -45,13 +38,9 @@ class Tile extends React.Component {
    }
    _mouseLeave(){
     this.setState ({
-      lift:'',
       lv2: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
       lv1: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
       lv3: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)'
-      // lv1:'',
-      // lv2:'',
-      // lv3:'',
         })
    }
 
@@ -61,12 +50,13 @@ class Tile extends React.Component {
 
     return (
      
-      <div className={`tile ${this.state.lift}`} 
+      <div className="tile" 
         onMouseOver={this._mouseEnter.bind(this)}
         onMouseOut={this._mouseLeave.bind(this)}
           >
          <Link to={_p.path} style={{
-              boxShadow: 'none', display: 'inline-block'}}>
+              boxShadow: 'none'
+              }}>
           <img src={
            _p.cover.childImageSharp
               .resize.src

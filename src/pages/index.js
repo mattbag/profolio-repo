@@ -9,28 +9,60 @@ import Tile from "../components/Tile"
 // import { rhythm } from "../utils/typography"
 
 class BlogIndex extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      transformY: '-20',
+      gridHeight: ''
+    }
+  }
+  componentDidMount() {
+    document.addEventListener('scroll', this.handleScroll.bind(this));
+    setTimeout(() => { this.getHeight() });
+  }
+  getHeight() {
+    const _h = document.getElementsByClassName('grid')[0].offsetHeight;
+    this.setState({ gridHeight: _h })
+    // console.log(this.state.gridHeight)
+  }
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll);
+  }
 
+  handleScroll(event) {
+    // let scrollTop = event.srcElement.body.scrollTop,
+    // let itemTranslate = Math.min(0, window.pageYOffset / 3 - 60);
+    let itemTranslate = window.pageYOffset / 5;
+    this.setState({
+      transformY: -itemTranslate - 20
+    });
+    // console.log(window.pageYOffset)
+  }
   render() {
     const siteTitle = get(this, "props.data.site.siteMetadata.title")
     const posts = get(this, "props.data.allMarkdownRemark.edges")
-   
-    return (
-      <div className="grid__wrap">
-        {/* <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
-        <Bio /> */}
-        <div className="grid">
-        {posts.map(post => {
-          if (post.node.path !== "/404/") {
-            {/* const title = get(post, "node.frontmatter.title") || post.node.path */}
-            {/* const cover = get(post, "node.frontmatter.cover") || post.node.path */}
-{/* console.log(post.node) */}
-            return (
-             
-                  <Tile post={post.node} key={post.node.frontmatter.path}/>
 
-            )
-          }
-        })}
+    return (
+      <div>
+        <div className="grid__scroll" style={{ height: this.state.gridHeight }}></div>
+
+        <div className="grid__wrap">
+          <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
+          {/* <Bio /> */}
+          <div className="grid" style={{ transform: `translateY(${this.state.transformY}%)` }}>
+            {posts.map(post => {
+              if (post.node.path !== "/404/") {
+                {/* const title = get(post, "node.frontmatter.title") || post.node.path */ }
+                {/* const cover = get(post, "node.frontmatter.cover") || post.node.path */ }
+                {/* console.log(post.node) */ }
+                return (
+
+                  <Tile post={post.node} key={post.node.frontmatter.path} />
+
+                )
+              }
+            })}
+          </div>
         </div>
       </div>
     )
