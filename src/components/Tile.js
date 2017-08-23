@@ -34,7 +34,7 @@ class Tile extends React.Component {
   _mouseEnter() {
     this.setState({
       lift: 'lift',
-      lv1: `matrix3d(0.999848, -0.0${this._rand(10, 60)}, 0, 0, 0.0${this._rand(17, 27)}, 0.999848, 0, 0, 0, 0, 1, 0, 0, 0, 150, 1)`,
+      lv1: `matrix3d(0.999848, ${this._rand(-10, 20) / 100}, 0, 0, 0.0${this._rand(17, 27)}, 0.999848, 0, 0, 0, 0, 1, 0, 0, 0, 150, 1)`,
       lv2: `matrix3d(0.999391, 0.0${this._rand(25, 40)}, 0, 0, 0.0${this._rand(25, 40)}, 0.999391, 0, 0, 0, 0, 1, 0, 0, 0, 100, 1)`,
       lv3: `matrix3d(0.999848, 0.0${this._rand(17, 40)}, 0, 0, 0.0${this._rand(17, 40)}, 0.999848, 0, 0, 0, 0, 1, 0, 0, 0, 30, 1)`
     })
