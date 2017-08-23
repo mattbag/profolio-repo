@@ -66,7 +66,7 @@ class Tile extends React.Component {
           style={{transform: this.state.lv2}}/>
           <img src={wf} alt={_p.title}
           style={{transform: this.state.lv3}}/>
-          <span className="tile__title">{_p.title}</span>
+          <div className="tile__title">{_p.title}</div>
           </Link>
       </div>
 
