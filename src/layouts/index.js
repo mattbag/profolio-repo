@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { Container } from 'react-responsive-grid'
+
 import Bio from "../components/bio/Bio"
+import 'typeface-montserrat'
 import { rhythm, scale } from '../utils/typography'
 import "./master.scss"
 
