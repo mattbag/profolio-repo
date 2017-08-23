@@ -23,7 +23,7 @@ class Template extends React.Component {
               position: 'fixed'
             }}
           >
-            <Link
+            {/* <Link
               style={{
                 boxShadow: 'none',
                 textDecoration: 'none',
@@ -32,8 +32,8 @@ class Template extends React.Component {
               to={'/'}
             >
               Awesome!
-          </Link>
-          <Link
+          </Link> */}
+            <Link
               style={{
                 boxShadow: 'none',
                 textDecoration: 'none',
@@ -41,14 +41,14 @@ class Template extends React.Component {
               }}
               to={'/'}
             >
-              <Bio/>
-          </Link>
+              <Bio />
+            </Link>
           </h1>
         </header>
       )
     } else {
       header = (
-
+        <header>
           <Link
             style={{
               boxShadow: 'none',
@@ -57,9 +57,9 @@ class Template extends React.Component {
             }}
             to={'/'}
           >
-          <Bio/>
+            <Bio />
           </Link>
-
+        </header>
       )
     }
     return (
