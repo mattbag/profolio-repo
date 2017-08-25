@@ -1,15 +1,15 @@
 @import './../../utils/_fluidprops';
 .tile {
-    width: 40%;
+    width: 100%;
     position: relative;
     transform-style: preserve-3d;
     flex: 0 0 auto;
     min-height: 0px;
     min-width: 0px; // width: 100%;
     margin-bottom: .5rem;
-    // @media screen and (min-width: 768px) {
-    //     width: 30%;
-    // }
+    @media screen and (min-width: 768px) {
+        width: 45%;
+    }
     @media screen and (min-width: 1200px) {
         width: 30%;
         margin-bottom: 3rem;

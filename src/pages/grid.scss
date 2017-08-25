@@ -5,11 +5,12 @@
     transform-style: preserve-3d; // transform: translate3d(0px, -60vmin, 0px);
     position: relative;
     &__wrap {
-        position: fixed;
-        top: 36%;
-        left: 2%;
-        width: 96%; // transform: translateX(-20vw) translateY(275px) rotateX(45deg) rotateZ(45deg);
-        transform: translateX(-20vw) translateY(0) rotateX(5deg) rotateZ(15deg);
+        // position: fixed;
+        // top: 36%;
+        // left: 2%;
+        width: 90%; 
+        // transform: translateX(-20vw) translateY(275px) rotateX(45deg) rotateZ(45deg);
+        // transform: translateX(-20vw) translateY(0) rotateX(5deg) rotateZ(15deg);
         margin: 0 auto;
         @media screen and (min-width: 768px) {
             transform:translateX(-15vw) translateY(50vmin) rotateX(45deg) rotateZ(15deg);
@@ -22,10 +23,10 @@
         @media screen and (min-width: 1200px) {
             transform: translateX(-30vw) translateY(50vmin) rotateX(55deg) rotateZ(35deg);
             width: 80%;
-            position: fixed;
-            left: 10%;
-            top: 0;
-            transform-style: preserve-3d;
+            // position: fixed;
+            // left: 10%;
+            // top: 0;
+            // transform-style: preserve-3d;
         }
     }
     // &__scroll{

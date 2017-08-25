@@ -1,6 +1,24 @@
-html{min-height: 100%}
+html{
+    min-height: 100%;
+    // padding: 1.2%;
+    // background-color: #111;
+}
 body{
     // background:linear-gradient(135deg, transparent, rgba(50,63,92,0.6));
-    background:linear-gradient(135deg, transparent, rgba(16, 56, 146, 0.78));
+    // background:linear-gradient(135deg, transparent, rgba(16, 56, 146, 0.78));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(16, 56, 146, 0.78));
     font-family: monospace;
+    // border: 1.5rem solid #1a1a1a;
+    min-height: 100vh;
+    &:after{
+        width: 100vw;
+        height: 100vh;
+        // background-color: #111;
+        pointer-events: none;
+        content: '';
+        position: fixed;
+        top:0;
+        left: 0;
+        border: 1.5rem solid #1a1a1a;
+    }
 }

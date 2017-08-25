@@ -11,21 +11,32 @@ import Tile from "../components/tile/Tile"
 class BlogIndex extends React.Component {
   constructor() {
     super()
+    if( window.innerWidth >768){
+
+    }
     this.state = {
       transformY: '-40',
       gridHeight: ''
     }
+    
     this.handleScroll = this.handleScroll.bind(this);
-  }
-  componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll);
-    this.loadInterval = setTimeout(() => { this.getHeight() });
+    this.getHeight = this.getHeight.bind(this);
   }
 
   getHeight() {
     const _h = document.getElementsByClassName('grid')[0].offsetHeight;
     this.setState({ gridHeight: _h })
     // console.log(this.state.gridHeight)
+  }
+
+
+  componentDidMount() {
+    document.addEventListener('scroll', this.handleScroll);
+    this.loadInterval = setTimeout(() => { this.getHeight() });
+
+    window.addEventListener('resize', ()=>{
+      this.getHeight()
+    });
   }
 
   componentWillUnmount() {
@@ -36,11 +47,11 @@ class BlogIndex extends React.Component {
   handleScroll(event) {
     // let scrollTop = event.srcElement.body.scrollTop,
     // let itemTranslate = Math.min(0, window.pageYOffset / 3 - 60);
-    let itemTranslate = window.pageYOffset / 5;
+    let itemTranslate = window.pageYOffset / 8;
     this.setState({
       transformY: -itemTranslate - 40
     });
-    // console.log(window.pageYOffset)
+    // console.log(this.state.transformY)
   }
   render() {
     const siteTitle = get(this, "props.data.site.siteMetadata.title")
