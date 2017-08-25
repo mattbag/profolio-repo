@@ -11,14 +11,21 @@ import Tile from "../components/tile/Tile"
 class BlogIndex extends React.Component {
   constructor() {
     super()
-    if( window.innerWidth >768){
+    if (window.innerWidth > 768) {
+      this.state = {
+        transformY: '-40%',
+        gridHeight: '',
+        isMob: false
+      }
+    } else {
+      this.state = {
+        transformY: '4rem',
+        gridHeight: '',
+        isMob: true
+      }
+    }
 
-    }
-    this.state = {
-      transformY: '-40',
-      gridHeight: ''
-    }
-    
+
     this.handleScroll = this.handleScroll.bind(this);
     this.getHeight = this.getHeight.bind(this);
   }
@@ -31,17 +38,22 @@ class BlogIndex extends React.Component {
 
 
   componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll);
-    this.loadInterval = setTimeout(() => { this.getHeight() });
+    if (!this.state.isMob) {
 
-    window.addEventListener('resize', ()=>{
-      this.getHeight()
-    });
+      document.addEventListener('scroll', this.handleScroll);
+      this.loadInterval = setTimeout(() => { this.getHeight() });
+
+      window.addEventListener('resize', () => {
+        this.getHeight()
+      });
+    }
   }
 
   componentWillUnmount() {
+    if (!this.state.isMob) {
     document.removeEventListener('scroll', this.handleScroll);
     clearTimeout(this.loadInterval);
+    }
   }
 
   handleScroll(event) {
@@ -49,9 +61,14 @@ class BlogIndex extends React.Component {
     // let itemTranslate = Math.min(0, window.pageYOffset / 3 - 60);
     let itemTranslate = window.pageYOffset / 8;
     this.setState({
-      transformY: -itemTranslate - 40
+      transformY: -itemTranslate - 40 + '%'
     });
     // console.log(this.state.transformY)
+  }
+  createScroller(bool) {
+    if (bool) {
+      return (<div className="grid__scroll" style={{ height: this.state.gridHeight }}></div>)
+    }
   }
   render() {
     const siteTitle = get(this, "props.data.site.siteMetadata.title")
@@ -59,12 +76,12 @@ class BlogIndex extends React.Component {
 
     return (
       <div>
-        <div className="grid__scroll" style={{ height: this.state.gridHeight }}></div>
-
-        <div className="grid__wrap">
+        {/* <div className="grid__scroll" style={{ height: this.state.gridHeight }}></div> */}
+        {this.createScroller(!this.state.isMob)}
+        <div className={`grid__wrap ${!this.state.isMob ? 'grid__dk' : ''}`}>
           <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
-         
-          <div className="grid" style={{ transform: `translateY(${this.state.transformY}%)` }}>
+
+          <div className="grid" style={{ transform: `translateY(${this.state.transformY})` }}>
             {posts.map(post => {
               if (post.node.path !== "/404/") {
                 {/* const title = get(post, "node.frontmatter.title") || post.node.path */ }

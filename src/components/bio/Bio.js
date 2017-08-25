@@ -14,16 +14,17 @@ class Bio extends React.Component {
     if (this.props.bio) {
       bio = (
         <span>
-        Written by < strong > Kyle Mathews</strong > who lives and works in San
+          Written by < strong > Kyle Mathews</strong > who lives and works in San
       Francisco building useful things.
       <a href="https://twitter.com/kylemathews">
-        You should follow him on Twitter
-      </a> 
-      </span>
-)
+            You should follow him on Twitter
+      </a>
+        </span>
+      )
     }
+    
     if (this.props.social) {
-      social = <Social/>
+      social = <Social />
     }
     return (
       <div>
