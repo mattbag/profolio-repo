@@ -11,15 +11,32 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-
+// console.log(post)
     return (
 
       <Container
         style={{
-          maxWidth: rhythm(60),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          maxWidth: rhythm(40),
+          padding: `${rhythm(4)} ${rhythm(3 / 4)} 0`,
+          backgroundColor: '#eee',
+          boxShadow: '0px 0px 100px 5px rgba(255,255,255,.3)'
         }}
       >
+      <img src={
+            post.frontmatter.cover.childImageSharp.resize.src
+          } alt={post.title}
+          style={{
+            transform: `scale(1.1)`,
+            transformOrigin: `center bottom`,
+            boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)'
+          }}
+             />
+          {/* <img src={wf} alt={post.title}
+
+            />
+          <img src={wf} alt={post.title}
+
+            /> */}
         <div>
           <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
           <h1 style={{ marginTop: 0 }}>
@@ -64,6 +81,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        cover {
+          childImageSharp {
+            resize(width: 1200, height: 800, quality: 80) {
+              src
+            }
+          }
+        }
       }
     }
   }

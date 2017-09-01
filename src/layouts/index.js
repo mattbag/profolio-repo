@@ -11,28 +11,20 @@ class Template extends React.Component {
   render() {
     const { location, children } = this.props
     let header
-    if (location.pathname === '/') {
-      header = (
 
+      header = (
         <header>
           <h1
             style={{
               ...scale(.5),
               marginBottom: rhythm(1.5),
               marginTop: 0,
-              position: 'fixed'
+              position: 'fixed',
+              left: '.25rem',
+              top: '.5rem',
+              zIndex: 1
             }}
           >
-            {/* <Link
-              style={{
-                boxShadow: 'none',
-                textDecoration: 'none',
-                color: 'inherit',
-              }}
-              to={'/'}
-            >
-              Awesome!
-          </Link> */}
             <Link
               style={{
                 boxShadow: 'none',
@@ -46,27 +38,14 @@ class Template extends React.Component {
           </h1>
         </header>
       )
-    } else {
-      header = (
-        <header>
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            <Bio />
-          </Link>
-        </header>
-      )
-    }
+   
+   
     return (
       <Container
         style={{
           maxWidth: rhythm(80),
           padding: `${rhythm(3 / 4)}`,
+        
         }}
       >
         {header}

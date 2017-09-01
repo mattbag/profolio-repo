@@ -7,13 +7,14 @@ import "./grid.scss"
 
 import Tile from "../components/tile/Tile"
 // import { rhythm } from "../utils/typography"
+const startY = 20;
 
 class BlogIndex extends React.Component {
   constructor() {
     super()
     if (window.innerWidth > 768) {
       this.state = {
-        transformY: '-40%',
+        transformY: `-${startY}%`,
         gridHeight: '',
         isMob: false
       }
@@ -61,7 +62,7 @@ class BlogIndex extends React.Component {
     // let itemTranslate = Math.min(0, window.pageYOffset / 3 - 60);
     let itemTranslate = window.pageYOffset / 8;
     this.setState({
-      transformY: -itemTranslate - 40 + '%'
+      transformY: -itemTranslate - startY + '%'
     });
     // console.log(this.state.transformY)
   }
