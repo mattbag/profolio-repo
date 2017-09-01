@@ -6,6 +6,7 @@ import React from 'react'
 import Social from './../social/social'
 import profilePic from './face.png'
 // import { rhythm } from '../utils/typography'
+import './bio.scss'
 
 class Bio extends React.Component {
   render() {
@@ -27,12 +28,13 @@ class Bio extends React.Component {
       social = <Social />
     }
     return (
-      <div>
+      <div className="bio">
         <img
           src={profilePic}
           alt={`Matt Bagni logo`}
           width="50px"
         />
+        
         {bio}
         {social}
       </div>

@@ -9,6 +9,7 @@ body{
     // background:linear-gradient(135deg, transparent, rgba(16, 56, 146, 0.78));
     background: linear-gradient(135deg, rgb(40, 36, 36), rgba(68, 114, 221, 0.78));
     font-family: monospace;
+    font-size: 1.2rem;
     // border: 1.5rem solid #1a1a1a;
     min-height: 100vh;
     &:after{
@@ -21,7 +22,7 @@ body{
         top:0;
         left: 0;
         border: 1.5rem solid #1a1a1a;
-        box-shadow: inset 0 0 25px 0px rgba(255, 255, 255, 0.3)
+        box-shadow: inset 0 0 25px 0px rgba(0, 0, 0, 0.30)
     }
 }
 h1,h2,h3,h4,h5,h6{
@@ -29,8 +30,11 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .gatsby-resp-image-link{
-    text-decoration: none;
+    box-shadow: none !important;
 }
 .gatsby-resp-image-wrapper{
     z-index: auto !important;
+}
+blockquote{
+    margin-left: 0
 }
