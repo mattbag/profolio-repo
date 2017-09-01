@@ -95,6 +95,7 @@ class BlogIndex extends React.Component {
                 )
               }
             })}
+            {/* <Tile post={post.node} key={post.node.frontmatter.path} /> */}
           </div>
         </div>
       </div>
