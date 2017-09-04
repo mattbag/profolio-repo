@@ -6,6 +6,8 @@ import { Container } from 'react-responsive-grid'
 
 import Bio from '../components/bio/Bio'
 import { rhythm } from '../utils/typography'
+import wf from './../img/wf.png'
+import cs from './../img/cs.png'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -22,6 +24,8 @@ class BlogPostTemplate extends React.Component {
           boxShadow: '0px 0px 100px 5px rgba(255,255,255,.3)'
         }}
       >
+      <div style={{position:'relative'}}>
+
       <img src={
             post.frontmatter.cover.childImageSharp.resize.src
           } alt={post.title}
@@ -29,14 +33,34 @@ class BlogPostTemplate extends React.Component {
             transform: `scale(1.1)`,
             transformOrigin: `center bottom`,
             boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)'
+        
           }}
              />
-          {/* <img src={wf} alt={post.title}
-
-            />
-          <img src={wf} alt={post.title}
-
-            /> */}
+            
+             {/* <img src={wf} alt={post.title}
+          style={{
+            position: 'absolute',
+            left: '-10%',
+            bottom: 0,
+            zIndex: 0,
+            width: '80%',
+            transform: `rotate(-5deg)`,
+            boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)',
+          }}
+             />
+             <img src={wf} alt={post.title}
+          style={{
+            position: 'absolute',
+            right: '-10%',
+            bottom: -20,
+            zIndex: 0,
+            width: '80%',
+            transform: `rotate(5deg)`,
+            boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)',
+            opacity: .9
+          }}
+             /> */}
+             </div>
         <div>
           <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
           <h1 style={{ marginTop: 0 }}>

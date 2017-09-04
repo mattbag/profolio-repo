@@ -4,8 +4,8 @@ import Link from "gatsby-link"
 // import 'typeface-montserrat'
 // import 'typeface-merriweather'
 import "./tile.scss"
-import wf from './wf.png'
-import cs from './cs.png'
+import wf from './../../img/wf.png'
+import cs from './../../img/cs.png'
 // import { rhythm } from '../utils/typography'
 
 class Tile extends React.Component {
