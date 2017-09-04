@@ -64,7 +64,7 @@
         text-align: center;
         transform: translate3d(0, -200%, 0);
         transition: all .25s .15s ease;
-        font-family: 'Montserrat', sans-serif;
+        // font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         color: #FFFFFF; // font-size: 2rem;
         @include fp(font-size, 16, 30); //50px at 320, 100px at 1920;
