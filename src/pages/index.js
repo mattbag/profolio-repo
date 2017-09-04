@@ -12,7 +12,7 @@ const startY = 20;
 class BlogIndex extends Component {
   constructor() {
     super()
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1280) {
       this.state = {
         transformY: `-${startY}%`,
         gridHeight: '',
