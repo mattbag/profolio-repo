@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Component} from "react"
 
 import get from "lodash/get"
 import Helmet from "react-helmet"
@@ -9,7 +9,7 @@ import Tile from "../components/tile/Tile"
 // import { rhythm } from "../utils/typography"
 const startY = 20;
 
-class BlogIndex extends React.Component {
+class BlogIndex extends Component {
   constructor() {
     super()
     if (window.innerWidth > 768) {
@@ -57,7 +57,7 @@ class BlogIndex extends React.Component {
     }
   }
 
-  handleScroll(event) {
+  handleScroll() {
     // let scrollTop = event.srcElement.body.scrollTop,
     // let itemTranslate = Math.min(0, window.pageYOffset / 3 - 60);
     let itemTranslate = window.pageYOffset / 8;
@@ -80,7 +80,7 @@ class BlogIndex extends React.Component {
         {/* <div className="grid__scroll" style={{ height: this.state.gridHeight }}></div> */}
         {this.createScroller(!this.state.isMob)}
         <div className={`grid__wrap ${!this.state.isMob ? 'grid__dk' : ''}`}>
-          <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
+          <Helmet title={siteTitle} />
 
           <div className="grid" style={{ transform: `translateY(${this.state.transformY})` }}>
             {posts.map(post => {

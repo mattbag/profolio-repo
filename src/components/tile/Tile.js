@@ -50,7 +50,7 @@ class Tile extends React.Component {
   render() {
     // console.log(this.state.lv1);
     const _p = this.props.post.frontmatter
-
+// console.log(_p)
     return (
 
       <div className="tile"

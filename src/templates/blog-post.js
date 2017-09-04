@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import { Container } from 'react-responsive-grid'
 
 import Bio from '../components/bio/Bio'
-import { rhythm, scale } from '../utils/typography'
+import { rhythm } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -44,7 +44,6 @@ class BlogPostTemplate extends React.Component {
           </h1>
           <p
             style={{
-              ...scale(-1 / 5),
               display: 'block',
               marginBottom: rhythm(1),
               marginTop: rhythm(-1),
