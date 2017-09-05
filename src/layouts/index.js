@@ -39,7 +39,6 @@ class Template extends React.Component {
         </header>
       )
    
-   
     return (
       <Container
         style={{

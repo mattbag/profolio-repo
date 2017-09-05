@@ -1,8 +1,8 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 
 import get from "lodash/get"
 import Helmet from "react-helmet"
-
+import logo from './../components/bio/face.png'
 import "./grid.scss"
 
 import Tile from "../components/tile/Tile"
@@ -52,8 +52,8 @@ class BlogIndex extends Component {
 
   componentWillUnmount() {
     if (!this.state.isMob) {
-    document.removeEventListener('scroll', this.handleScroll);
-    clearTimeout(this.loadInterval);
+      document.removeEventListener('scroll', this.handleScroll);
+      clearTimeout(this.loadInterval);
     }
   }
 
@@ -80,8 +80,11 @@ class BlogIndex extends Component {
         {/* <div className="grid__scroll" style={{ height: this.state.gridHeight }}></div> */}
         {this.createScroller(!this.state.isMob)}
         <div className={`grid__wrap ${!this.state.isMob ? 'grid__dk' : ''}`}>
-          <Helmet title={siteTitle} />
-
+          <Helmet title={`${siteTitle} - a Progressive Front-end Dev`}>
+            <link rel="icon"
+              type="image/png"
+              href={logo} />
+          </Helmet>
           <div className="grid" style={{ transform: `translateY(${this.state.transformY})` }}>
             {posts.map(post => {
               if (post.node.path !== "/404/") {
