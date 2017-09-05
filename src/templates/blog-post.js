@@ -8,6 +8,11 @@ import Bio from '../components/bio/Bio'
 import { rhythm } from '../utils/typography'
 import wf from './../img/wf.png'
 import cs from './../img/cs.png'
+import angular from './../img/angular.png'
+import ionic from './../img/ionic.png'
+import app from './../img/app.png'
+import wordpress from './../img/wordpress.png'
+
 import './../utils/cover.scss'
 
 class BlogPostTemplate extends React.Component {
@@ -71,7 +76,22 @@ let tags
 if(post.frontmatter.tags){
  tags = (
     post.frontmatter.tags.map(tag=>{
-   return <span>[{tag}] </span>
+      let src
+      switch (tag.toString()){
+      case 'ionic':
+      src = ionic;
+      break;
+      case 'angular':
+      src = angular;
+      break;
+      case 'app':
+      src = app;
+      break;
+      case 'wordpress':
+      src = wordpress;
+      break;
+      }
+      return <img src={src} key={tag} width="30"/>
   })
 )
 }
@@ -90,16 +110,17 @@ if(post.frontmatter.tags){
           <h1 style={{ marginTop: 0 }}>
             {post.frontmatter.title}
           </h1>
-          <p
+          <div
             style={{
-              display: 'block',
+              display: 'flex',
+              alignItems:'center',
               marginBottom: rhythm(1),
-              marginTop: rhythm(-1),
+              marginTop: rhythm(-.75),
             }}
           >
             
             {tags}
-          </p>
+          </div>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr
             style={{
