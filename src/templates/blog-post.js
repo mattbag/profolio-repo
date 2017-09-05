@@ -91,7 +91,7 @@ if(post.frontmatter.tags){
       src = wordpress;
       break;
       }
-      return <img src={src} key={tag} width="30"/>
+      return <img src={src} alt={tag} key={tag} width="30"/>
   })
 )
 }
