@@ -6,6 +6,7 @@ import logo from './../components/bio/face.png'
 import "./grid.scss"
 
 import Tile from "../components/tile/Tile"
+import TileEmpty from "../components/tile-empty/TileEmpty"
 // import { rhythm } from "../utils/typography"
 const startY = 20;
 
@@ -98,6 +99,9 @@ class BlogIndex extends Component {
                 )
               }
             })}
+            <TileEmpty />
+            <TileEmpty />
+            <TileEmpty />
           </div>
         </div>
       </div>
