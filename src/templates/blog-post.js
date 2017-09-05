@@ -8,14 +8,74 @@ import Bio from '../components/bio/Bio'
 import { rhythm } from '../utils/typography'
 import wf from './../img/wf.png'
 import cs from './../img/cs.png'
+import './../utils/cover.scss'
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-// console.log(post)
-    return (
+    const cover = post.frontmatter.cover.childImageSharp
+    let top
 
+    if (post.frontmatter.app) {
+      top = (
+        <div className="iphone">
+        <iframe src={post.frontmatter.app} frameBorder="0" width="100%" height="100%"></iframe>
+        </div>
+      )
+    } else {
+      top = (
+        <div style={{ position: 'relative' }}>
+
+          <img src={
+            cover.responsiveSizes.originalImg
+          }
+            srcSet={
+              cover.responsiveSizes.srcSet
+            }
+            alt={post.title}
+            style={{
+              transform: `scale(1.1)`,
+              transformOrigin: `center bottom`,
+              boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)'
+            }}
+          />
+
+          {/* <img src={wf} alt={post.title}
+                style={{
+                  position: 'absolute',
+                  left: '-10%',
+                  bottom: 0,
+                  zIndex: 0,
+                  width: '80%',
+                  transform: `rotate(-5deg)`,
+                  boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)',
+                }}
+                   />
+                   <img src={wf} alt={post.title}
+                style={{
+                  position: 'absolute',
+                  right: '-10%',
+                  bottom: -20,
+                  zIndex: 0,
+                  width: '80%',
+                  transform: `rotate(5deg)`,
+                  boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)',
+                  opacity: .9
+                }}
+                   /> */}
+        </div>
+      )
+    }
+let tags
+if(post.frontmatter.tags){
+ tags = (
+    post.frontmatter.tags.map(tag=>{
+   return <span>[{tag}] </span>
+  })
+)
+}
+    return (
       <Container
         style={{
           maxWidth: rhythm(40),
@@ -24,45 +84,9 @@ class BlogPostTemplate extends React.Component {
           boxShadow: '0px 0px 100px 5px rgba(255,255,255,.3)'
         }}
       >
-      <div style={{position:'relative'}}>
-
-      <img src={
-            post.frontmatter.cover.childImageSharp.resize.src
-          } alt={post.title}
-          style={{
-            transform: `scale(1.1)`,
-            transformOrigin: `center bottom`,
-            boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)'
-        
-          }}
-             />
-            
-             {/* <img src={wf} alt={post.title}
-          style={{
-            position: 'absolute',
-            left: '-10%',
-            bottom: 0,
-            zIndex: 0,
-            width: '80%',
-            transform: `rotate(-5deg)`,
-            boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)',
-          }}
-             />
-             <img src={wf} alt={post.title}
-          style={{
-            position: 'absolute',
-            right: '-10%',
-            bottom: -20,
-            zIndex: 0,
-            width: '80%',
-            transform: `rotate(5deg)`,
-            boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)',
-            opacity: .9
-          }}
-             /> */}
-             </div>
+        {top}
         <div>
-          <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+          <Helmet title={`${post.frontmatter.title} | ${post.frontmatter.tags} ${siteTitle}`} />
           <h1 style={{ marginTop: 0 }}>
             {post.frontmatter.title}
           </h1>
@@ -73,12 +97,14 @@ class BlogPostTemplate extends React.Component {
               marginTop: rhythm(-1),
             }}
           >
-            {post.frontmatter.date}
+            
+            {tags}
           </p>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr
             style={{
-              marginBottom: rhythm(1),
+              width: '70%',
+              margin: '1.5rem auto'
             }}
           />
           <Bio bio={false} social={true} />
@@ -104,10 +130,14 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
+        app
         cover {
           childImageSharp {
-            resize(width: 1200, height: 800, quality: 80) {
+            responsiveSizes(maxWidth: 1200, maxHeight: 800, quality: 100, cropFocus: CENTER) {
               src
+              originalImg
+              srcSet
             }
           }
         }

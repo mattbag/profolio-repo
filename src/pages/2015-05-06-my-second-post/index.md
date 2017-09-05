@@ -1,12 +1,10 @@
 ---
-title: My Second Post!
+title: Ionic Jedi Hackster
 date: "2015-05-06T23:46:37.121Z"
 path: "/my-second-post/"
 cover: "./1.jpg"
+app: "https://mattbag.github.io/tinderwars/"
+tags: ['ionic', 'angular','app']
 ---
 
-Wow! I love blogging so much already.
-
-Did you know that "despite its name, salted duck eggs can also be made from chicken eggs, though the taste and texture will be somewhat different, and the egg yolk will be less rich."? ([Wikipedia Link](http://en.wikipedia.org/wiki/Salted_duck_egg))
-
-Yeah, I didn't either.
+Unfortunately, I can't fetch from http, I will update the app asap
