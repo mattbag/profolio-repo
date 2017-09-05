@@ -77,19 +77,19 @@ if(post.frontmatter.tags){
  tags = (
     post.frontmatter.tags.map(tag=>{
       let src
-      switch (tag.toString()){
-      case 'ionic':
-      src = ionic;
-      break;
-      case 'angular':
-      src = angular;
-      break;
-      case 'app':
-      src = app;
-      break;
-      case 'wordpress':
-      src = wordpress;
-      break;
+      switch (tag.toString()) {
+        case 'ionic':
+          src = ionic;
+          break;
+        case 'angular':
+          src = angular;
+          break;
+        case 'app':
+          src = app;
+          break;
+        case 'wordpress':
+          src = wordpress;
+          break;
       }
       return <img src={src} alt={tag} key={tag} width="30"/>
   })
@@ -114,7 +114,6 @@ if(post.frontmatter.tags){
             style={{
               display: 'flex',
               alignItems:'center',
-              marginBottom: rhythm(1),
               marginTop: rhythm(-.75),
             }}
           >

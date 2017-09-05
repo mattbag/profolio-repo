@@ -3,6 +3,7 @@ title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 path: "/hello-world/"
 cover: "./1.jpg"
+tags: ['ionic', 'angular','wordpress']
 ---
 
 This is my first post on my new fake blog! How exciting!
