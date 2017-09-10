@@ -1,11 +1,12 @@
 import React from 'react'
-import Link from "gatsby-link"
+// import Link from "gatsby-link"
 // Import typefaces
 // import 'typeface-montserrat'
 // import 'typeface-merriweather'
 import "./tile.scss"
 import wf from './../../img/wf.png'
-import cs from './../../img/cs.png'
+import wfo from './../../img/wfo.png'
+import oo from './../../img/oo.png'
 // import { rhythm } from '../utils/typography'
 
 class TileEmpty extends React.Component {
@@ -19,15 +20,6 @@ class TileEmpty extends React.Component {
       lv3: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)'
     }
   }
-  // componentWillMount(){
-  //   // console.log('mount');
-  //   this.setState ({
-  //     lvl1: 'transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
-  //     lvl2: 'transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)',
-  //     lvl3: 'transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)'
-  //   })
-  //   console.log(this.state)
-  // }
   _rand(min, max) {
     return Math.floor(Math.random() * max) + min
   }
@@ -48,26 +40,20 @@ class TileEmpty extends React.Component {
   }
 
   render() {
-    // console.log(this.state.lv1);
-    // const _p = this.props.post.frontmatter
-// console.log(_p)
     return (
 
       <div className="tile"
         onMouseOver={this._mouseEnter.bind(this)}
         onMouseOut={this._mouseLeave.bind(this)}
       >
-        <Link to="/" style={{
-          boxShadow: 'none'
-        }}>
           <img src={wf} alt={`Coming Soon`}
             style={{ transform: this.state.lv1 }} />
-          <img src={wf} alt={`Coming Soon`}
+          <img src={wfo} alt={`Coming Soon`}
             style={{ transform: this.state.lv2 }} />
-          <img src={wf} alt={`Coming Soon`}
+          <img src={oo} alt={`Coming Soon`}
             style={{ transform: this.state.lv3 }} />
           <div className="tile__title">{`Coming Soon`}</div>
-        </Link>
+
       </div>
 
     )
