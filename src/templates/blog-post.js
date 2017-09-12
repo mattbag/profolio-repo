@@ -25,7 +25,7 @@ class BlogPostTemplate extends React.Component {
     if (post.frontmatter.app) {
       top = (
         <div className="iphone">
-        <iframe src={post.frontmatter.app} frameBorder="0" width="100%" height="100%"></iframe>
+          <iframe src={post.frontmatter.app} frameBorder="0" width="100%" height="100%"></iframe>
         </div>
       )
     } else {
@@ -72,29 +72,29 @@ class BlogPostTemplate extends React.Component {
         </div>
       )
     }
-let tags
-if(post.frontmatter.tags){
- tags = (
-    post.frontmatter.tags.map(tag=>{
-      let src
-      switch (tag.toString()) {
-        case 'ionic':
-          src = ionic;
-          break;
-        case 'angular':
-          src = angular;
-          break;
-        case 'app':
-          src = app;
-          break;
-        case 'wordpress':
-          src = wordpress;
-          break;
-      }
-      return <img src={src} alt={tag} key={tag} width="30"/>
-  })
-)
-}
+    let tags
+    if (post.frontmatter.tags) {
+      tags = (
+        post.frontmatter.tags.map(tag => {
+          let src
+          switch (tag.toString()) {
+            case 'ionic':
+              src = ionic;
+              break;
+            case 'angular':
+              src = angular;
+              break;
+            case 'app':
+              src = app;
+              break;
+            case 'wordpress':
+              src = wordpress;
+              break;
+          }
+          return <img src={src} alt={tag} key={tag} width="30" />
+        })
+      )
+    }
     return (
       <Container
         style={{
@@ -106,24 +106,25 @@ if(post.frontmatter.tags){
       >
         {top}
         <div style={{
-            transform: `translateY(-100px)`
-           }}>
+          transform: `translateY(-100px)`
+        }}>
           <Helmet title={`${post.frontmatter.title} | ${post.frontmatter.tags} ${siteTitle}`} />
-          <h1 style={{ marginTop: 0,
+          <h1 style={{
+            marginTop: 0,
             fontSize: '4rem',
             color: '#111',
-            textShadow:`4px 4px #fff`
-           }}>
+            textShadow: `4px 4px #fff`
+          }}>
             {post.frontmatter.title}
           </h1>
           <div
             style={{
               display: 'flex',
-              alignItems:'center',
+              alignItems: 'center',
               marginTop: rhythm(-.75),
             }}
           >
-            
+
             {tags}
           </div>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />

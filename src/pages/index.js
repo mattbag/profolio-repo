@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import PropTypes from 'prop-types';
 import get from "lodash/get"
 import Helmet from "react-helmet"
 import logo from './../components/bio/face.png'
@@ -13,7 +13,7 @@ const startY = 20;
 class BlogIndex extends Component {
   constructor() {
     super()
-    if (window.innerWidth > 999) {
+    if (window.innerWidth >= 1200) {
       this.state = {
         transformY: `-${startY}%`,
         gridHeight: '',
@@ -27,7 +27,6 @@ class BlogIndex extends Component {
       }
     }
 
-
     this.handleScroll = this.handleScroll.bind(this);
     this.getHeight = this.getHeight.bind(this);
   }
@@ -38,12 +37,11 @@ class BlogIndex extends Component {
     // console.log(this.state.gridHeight)
   }
 
-
   componentDidMount() {
     if (!this.state.isMob) {
 
       document.addEventListener('scroll', this.handleScroll);
-      this.loadInterval = setTimeout(() => { this.getHeight() });
+      this.loadInterval = setTimeout(() => { this.getHeight() },200);
 
       window.addEventListener('resize', () => {
         this.getHeight()
@@ -72,15 +70,24 @@ class BlogIndex extends Component {
       return (<div className="grid__scroll" style={{ height: this.state.gridHeight }}></div>)
     }
   }
+  renderDummy(len){
+    let dums = []
+    for (var index = 0; index < len; index++) {
+      dums.push(<TileEmpty key={index}/>)
+    }
+    return dums
+  }
   render() {
     const siteTitle = get(this, "props.data.site.siteMetadata.title")
     const posts = get(this, "props.data.allMarkdownRemark.edges")
+    let dummy = posts.length < 10 ? 6 : 2
+// console.log(dummy)
 
     return (
       <div>
         {/* <div className="grid__scroll" style={{ height: this.state.gridHeight }}></div> */}
         {this.createScroller(!this.state.isMob)}
-        <div className={`grid__wrap ${!this.state.isMob ? 'grid__dk' : ''}`}>
+        <div className={`grid__wrap ${!this.state.isMob ? '' : ''}`}>
           <Helmet title={`${siteTitle} - a Progressive Front-end Dev`}>
             <link rel="icon"
               type="image/png"
@@ -99,16 +106,7 @@ class BlogIndex extends Component {
                 )
               }
             })}
-            <TileEmpty />
-            <TileEmpty />
-            <TileEmpty />
-            <TileEmpty />
-            <TileEmpty />
-            <TileEmpty />
-            <TileEmpty />
-            <TileEmpty />
-            <TileEmpty />
-            <TileEmpty />
+            {this.renderDummy(dummy)}
           </div>
         </div>
       </div>
@@ -117,7 +115,7 @@ class BlogIndex extends Component {
 }
 
 BlogIndex.propTypes = {
-  route: React.PropTypes.object,
+  route: PropTypes.object,
 }
 
 export default BlogIndex
