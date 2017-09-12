@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Component} from 'react'
 
 // Import typefaces
 // import 'typeface-montserrat'
@@ -8,7 +8,7 @@ import profilePic from './face.png'
 // import { rhythm } from '../utils/typography'
 import './bio.scss'
 
-class Bio extends React.Component {
+class Bio extends Component {
   render() {
     let bio
     let social
@@ -27,7 +27,7 @@ class Bio extends React.Component {
     if (this.props.text) {
       text = (
         <span style={{
-          fontSize: '3rem',
+          fontSize: '5vw',
           color: '#fff',
           textShadow:`4px 4px #1a1a1a`
         }}>{this.props.text}</span>

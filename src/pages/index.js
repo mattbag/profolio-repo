@@ -71,6 +71,7 @@ class BlogIndex extends Component {
     }
   }
   renderDummy(len){
+    if(this.state.isMob) return
     let dums = []
     for (var index = 0; index < len; index++) {
       dums.push(<TileEmpty key={index}/>)
