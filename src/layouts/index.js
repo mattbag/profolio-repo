@@ -14,7 +14,7 @@ class Template extends Component {
     let header
     let _bio
 
-    if (location.pathname === '/') {
+    if (location.pathname === '/' || location.pathname === '/gatsby') {
       _bio = (
         <Bio text="I'm Matt, a Progressive Front-end Dev" />
       )
