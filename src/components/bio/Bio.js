@@ -28,7 +28,7 @@ class Bio extends Component {
       text = (
         <span style={{
           color: '#fff',
-          textShadow:`4px 4px #1a1a1a`
+          textShadow:`4px 4px #111`
         }} className="heading">{this.props.text}</span>
       )
     }
