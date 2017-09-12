@@ -5,7 +5,8 @@ import Link from "gatsby-link"
 // import 'typeface-merriweather'
 import "./tile.scss"
 import wf from './../../img/wf.png'
-import cs from './../../img/cs.png'
+// import cs from './../../img/cs.png'
+import wfo from './../../img/wfo.png'
 // import { rhythm } from '../utils/typography'
 
 class Tile extends React.Component {
@@ -67,7 +68,7 @@ class Tile extends React.Component {
             style={{ transform: this.state.lv1 }} />
           <img src={wf} alt={_p.title}
             style={{ transform: this.state.lv2 }} />
-          <img src={wf} alt={_p.title}
+          <img src={wfo} alt={_p.title}
             style={{ transform: this.state.lv3 }} />
           <div className="tile__title">{_p.title}</div>
         </Link>
