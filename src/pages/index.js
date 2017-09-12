@@ -13,20 +13,24 @@ const startY = 20;
 class BlogIndex extends Component {
   constructor() {
     super()
-    if (window.innerWidth >= 1200) {
-      this.state = {
-        transformY: `-${startY}%`,
-        gridHeight: '',
-        isMob: false
-      }
-    } else {
-      this.state = {
-        transformY: '4rem',
-        gridHeight: '',
-        isMob: true
-      }
+    // if (window.innerWidth >= 1200) {
+    //   this.state = {
+    //     transformY: `-${startY}%`,
+    //     gridHeight: '',
+    //     isMob: false
+    //   }
+    // } else {
+    //   this.state = {
+    //     transformY: '4rem',
+    //     gridHeight: '',
+    //     isMob: true
+    //   }
+    // }
+    this.state = {
+      transformY: `-${startY}%`,
+      gridHeight: '',
+      isMob: false
     }
-
     this.handleScroll = this.handleScroll.bind(this);
     this.getHeight = this.getHeight.bind(this);
   }
@@ -38,14 +42,17 @@ class BlogIndex extends Component {
   }
 
   componentDidMount() {
-    if (!this.state.isMob) {
-
+    let _width = window.innerWidth >= 1200
+    if (_width) {
+      this.setState({ isMob: !_width })
       document.addEventListener('scroll', this.handleScroll);
       this.loadInterval = setTimeout(() => { this.getHeight() },200);
 
       window.addEventListener('resize', () => {
         this.getHeight()
       });
+    }else{
+      this.setState({ isMob: _width })
     }
   }
 
@@ -59,7 +66,7 @@ class BlogIndex extends Component {
   handleScroll() {
     // let scrollTop = event.srcElement.body.scrollTop,
     // let itemTranslate = Math.min(0, window.pageYOffset / 3 - 60);
-    let itemTranslate = window.pageYOffset / 8;
+    let itemTranslate = window.pageYOffset / 30;
     // this.setState({
     //   transformY: -itemTranslate - startY + '%'
     // });
@@ -82,7 +89,7 @@ class BlogIndex extends Component {
   render() {
     const siteTitle = get(this, "props.data.site.siteMetadata.title")
     const posts = get(this, "props.data.allMarkdownRemark.edges")
-    let dummy = posts.length < 10 ? 6 : 2
+    let dummy = posts.length < 10 ? 6 : 6
     console.log('render alert')
 
     return (
