@@ -6,7 +6,7 @@ import logo from './../components/bio/face.png'
 import "./grid.scss"
 
 import Tile from "../components/tile/Tile"
-import TileEmpty from "../components/tile-empty/TileEmpty"
+import TileEmpty from "../components/tile/TileEmpty"
 // import { rhythm } from "../utils/typography"
 const startY = 20;
 
@@ -60,10 +60,11 @@ class BlogIndex extends Component {
     // let scrollTop = event.srcElement.body.scrollTop,
     // let itemTranslate = Math.min(0, window.pageYOffset / 3 - 60);
     let itemTranslate = window.pageYOffset / 8;
-    this.setState({
-      transformY: -itemTranslate - startY + '%'
-    });
-    // console.log(this.state.transformY)
+    // this.setState({
+    //   transformY: -itemTranslate - startY + '%'
+    // });
+    document.querySelector('.grid').style.transform = `translateY(${-itemTranslate}%)`
+    // console.log(document.querySelector('.grid'))
   }
   createScroller(bool) {
     if (bool) {
@@ -82,7 +83,7 @@ class BlogIndex extends Component {
     const siteTitle = get(this, "props.data.site.siteMetadata.title")
     const posts = get(this, "props.data.allMarkdownRemark.edges")
     let dummy = posts.length < 10 ? 6 : 2
-// console.log(dummy)
+    console.log('render alert')
 
     return (
       <div>
@@ -94,7 +95,7 @@ class BlogIndex extends Component {
               type="image/png"
               href={logo} />
           </Helmet>
-          <div className="grid" style={{ transform: `translateY(${this.state.transformY})` }}>
+          <div className="grid">
             {posts.map(post => {
               if (post.node.path !== "/404/") {
                 {/* const title = get(post, "node.frontmatter.title") || post.node.path */ }

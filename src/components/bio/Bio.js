@@ -27,10 +27,9 @@ class Bio extends Component {
     if (this.props.text) {
       text = (
         <span style={{
-          fontSize: '5vw',
           color: '#fff',
           textShadow:`4px 4px #1a1a1a`
-        }}>{this.props.text}</span>
+        }} className="heading">{this.props.text}</span>
       )
     }
     if (this.props.social) {

@@ -1,3 +1,4 @@
+@import './../../utils/_fluidprops';
 .bio {
     position: relative;
     // &:after {
@@ -19,4 +20,7 @@
     &:hover img{
         transform: scale(1.15);
     }
+}
+.heading{
+    @include fp(font-size, 16, 50); //50px at 320, 100px at 1920;
 }
