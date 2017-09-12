@@ -1,20 +1,22 @@
 .bio {
     position: relative;
-    &:after {
-        width: 50px;
-        height: 50px;
-        background-color: #222;
-        border-radius: 50%;
-        position: absolute;
-        content: '';
-        top: 0;
-        z-index: -1;
-        left: 0;
-        transition: transform .75s cubic-bezier(0, 2, 1, 2), background-color .5s;
-        transform: scale(1.1);
+    // &:after {
+    //     width: 50px;
+    //     height: 50px;
+    //     background-color: #222;
+    //     border-radius: 50%;
+    //     position: absolute;
+    //     content: '';
+    //     top: 0;
+    //     z-index: -1;
+    //     left: 0;
+        // transition: transform .75s cubic-bezier(0, 2, 1, 2), background-color .5s;
+    //     transform: scale(1.1);
+    // }
+    img{
+        transition: transform .75s cubic-bezier(0, 2, 1, 2)
     }
-    &:hover:after {
+    &:hover img{
         transform: scale(1.15);
-        background-color: #FFFFFF;
     }
 }

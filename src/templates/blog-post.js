@@ -101,13 +101,19 @@ if(post.frontmatter.tags){
           maxWidth: rhythm(40),
           padding: `${rhythm(4)} ${rhythm(3 / 4)} 0`,
           backgroundColor: '#eee',
-          boxShadow: '0px 0px 100px 5px rgba(255,255,255,.3)'
+          boxShadow: '0px 0px 50px 5px rgba(255,255,255,.2)'
         }}
       >
         {top}
-        <div>
+        <div style={{
+            transform: `translateY(-100px)`
+           }}>
           <Helmet title={`${post.frontmatter.title} | ${post.frontmatter.tags} ${siteTitle}`} />
-          <h1 style={{ marginTop: 0 }}>
+          <h1 style={{ marginTop: 0,
+            fontSize: '4rem',
+            color: '#111',
+            textShadow:`4px 4px #fff`
+           }}>
             {post.frontmatter.title}
           </h1>
           <div

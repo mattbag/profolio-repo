@@ -11,12 +11,22 @@ class Template extends React.Component {
   render() {
     const { location, children } = this.props
     let header
+let _bio 
+
+  if (location.pathname === '/') {
+    _bio = (
+    <Bio text="I'm Matt, a Progressive Front-end Dev"/>
+    )
+  }else{
+    _bio = (
+    <Bio/>
+    )
+  }
 
       header = (
         <header>
           <h1
             style={{
-              ...scale(.5),
               marginBottom: rhythm(1.5),
               marginTop: 0,
               position: 'fixed',
@@ -33,7 +43,9 @@ class Template extends React.Component {
               }}
               to={'/'}
             >
-              <Bio />
+            
+              {_bio}
+              
             </Link>
           </h1>
         </header>

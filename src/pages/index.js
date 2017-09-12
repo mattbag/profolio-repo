@@ -102,6 +102,13 @@ class BlogIndex extends Component {
             <TileEmpty />
             <TileEmpty />
             <TileEmpty />
+            <TileEmpty />
+            <TileEmpty />
+            <TileEmpty />
+            <TileEmpty />
+            <TileEmpty />
+            <TileEmpty />
+            <TileEmpty />
           </div>
         </div>
       </div>

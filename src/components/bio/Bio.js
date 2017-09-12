@@ -12,18 +12,27 @@ class Bio extends React.Component {
   render() {
     let bio
     let social
+    let text
+
     if (this.props.bio) {
       bio = (
         <span>
-          Written by < strong > Kyle Mathews</strong > who lives and works in San
-      Francisco building useful things.
-      <a href="https://twitter.com/kylemathews">
-            You should follow him on Twitter
+          Just a cool thing by Matt Bagni 
+      <a href="https://twitter.com/mattbag00">
+            If you fancy Twitter
       </a>
         </span>
       )
     }
-    
+    if (this.props.text) {
+      text = (
+        <span style={{
+          fontSize: '3rem',
+          color: '#fff',
+          textShadow:`4px 4px #1a1a1a`
+        }}>{this.props.text}</span>
+      )
+    }
     if (this.props.social) {
       social = <Social />
     }
@@ -33,10 +42,12 @@ class Bio extends React.Component {
           src={profilePic}
           alt={`Matt Bagni logo`}
           width="50px"
+          style={{marginBottom: -5}}
         />
         
         {bio}
         {social}
+        {text}
       </div>
     )
   }
