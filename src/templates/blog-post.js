@@ -127,13 +127,17 @@ class BlogPostTemplate extends React.Component {
 
             {tags}
           </div>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div dangerouslySetInnerHTML={{ __html: post.html }} style={{padding: `2vmin 0`}} />
+       
           <hr
             style={{
-              width: '70%',
-              margin: '1.5rem auto'
+              width: '80%',
+              margin: '1.5rem auto',
+              height: 2,
+              backgroundColor: '#fff',
             }}
           />
+          
           <Bio bio={false} social={true} />
         </div>
       </Container>

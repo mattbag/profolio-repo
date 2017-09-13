@@ -13,6 +13,7 @@ class Bio extends Component {
     let bio
     let social
     let text
+    let align
 
     if (this.props.bio) {
       bio = (
@@ -34,9 +35,10 @@ class Bio extends Component {
     }
     if (this.props.social) {
       social = <Social />
+      align = {textAlign: 'center'}
     }
     return (
-      <div className="bio">
+      <div className="bio" style={align}>
         <img
           src={profilePic}
           alt={`Matt Bagni logo`}

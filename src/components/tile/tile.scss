@@ -1,6 +1,7 @@
 @import './../../utils/_fluidprops';
 
 .tile {
+    
     width: 100%;
     position: relative;
     transform-style: preserve-3d;
@@ -14,6 +15,9 @@
     @media screen and (min-width: 1200px) {
         width: 30%;
         // margin-bottom: 3rem;
+    }
+    a{
+        text-decoration: none !important;
     }
     img {
         // transition: all .15s cubic-bezier(.17, .67, .83, .67);

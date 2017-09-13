@@ -46,12 +46,12 @@ class BlogIndex extends Component {
     if (_width) {
       this.setState({ isMob: !_width })
       document.addEventListener('scroll', this.handleScroll);
-      this.loadInterval = setTimeout(() => { this.getHeight() },200);
+      this.loadInterval = setTimeout(() => { this.getHeight() }, 200);
 
       window.addEventListener('resize', () => {
         this.getHeight()
       });
-    }else{
+    } else {
       this.setState({ isMob: _width })
     }
   }
@@ -78,11 +78,11 @@ class BlogIndex extends Component {
       return (<div className="grid__scroll" style={{ height: this.state.gridHeight }}></div>)
     }
   }
-  renderDummy(len){
-    if(this.state.isMob) return
+  renderDummy(len) {
+    if (this.state.isMob) return
     let dums = []
     for (var index = 0; index < len; index++) {
-      dums.push(<TileEmpty key={index}/>)
+      dums.push(<TileEmpty key={index} />)
     }
     return dums
   }
@@ -90,7 +90,7 @@ class BlogIndex extends Component {
     const siteTitle = get(this, "props.data.site.siteMetadata.title")
     const posts = get(this, "props.data.allMarkdownRemark.edges")
     let dummy = posts.length < 10 ? 6 : 6
-    console.log('render alert')
+    console.log('index render alert')
 
     return (
       <div>

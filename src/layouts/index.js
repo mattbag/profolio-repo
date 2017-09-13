@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import { Container } from 'react-responsive-grid'
 
 import Bio from "../components/bio/Bio"
-import 'typeface-lobster'
+
 import { rhythm, scale } from '../utils/typography'
 import "./master.scss"
 
