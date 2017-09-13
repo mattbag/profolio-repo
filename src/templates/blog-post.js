@@ -15,6 +15,8 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const cover = post.frontmatter.cover.childImageSharp
+    let topPad
+    let titleY
     let top
 
     if (post.frontmatter.app) {
@@ -23,7 +25,11 @@ class BlogPostTemplate extends React.Component {
           <iframe src={post.frontmatter.app} frameBorder="0" width="100%" height="100%"></iframe>
         </div>
       )
+      topPad = `${rhythm(2)} ${rhythm(3 / 4)}`
+      titleY = '-20px'
     } else {
+      topPad = `${rhythm(4)} ${rhythm(3 / 4)} 0`
+      titleY = '-80px'
       top = (
         <div style={{ position: 'relative' }}>
 
@@ -56,14 +62,14 @@ class BlogPostTemplate extends React.Component {
       <Container
         style={{
           maxWidth: rhythm(40),
-          padding: `${rhythm(4)} ${rhythm(3 / 4)} 0`,
+          padding: topPad,
           backgroundColor: '#eee',
           boxShadow: '0px 0px 50px 5px rgba(255,255,255,.2)'
         }}
       >
         {top}
         <div style={{
-          transform: `translateY(-80px)`
+          transform: `translateY(${titleY})`
         }}>
           <Helmet title={`${post.frontmatter.title} | ${post.frontmatter.tags} ${siteTitle}`} />
           <h1 style={{
