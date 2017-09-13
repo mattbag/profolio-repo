@@ -25,7 +25,6 @@
     "gatsby-source-filesystem": "^1.4.3",
     "gatsby-transformer-remark": "^1.7.1",
     "gatsby-transformer-sharp": "^1.6.1",
-    "iconfonts": "^0.11.1",
     "lodash": "^4.15.0",
     "react-responsive-grid": "^0.3.3",
     "typeface-lobster": "^0.0.35",
@@ -55,6 +54,7 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "path": "gatsby build --prefix-paths",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }

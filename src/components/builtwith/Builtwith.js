@@ -10,11 +10,12 @@ class Builtwith extends Component {
         right:5,
         zIndex: 2
       }}>
-     <Icon icon="gatsby"/>
+     
+     <a href="https://www.gatsbyjs.org/" target="_blank"><Icon icon="gatsby"/></a>
      <span style={{
       padding: 2
       }}></span>
-     <Icon icon="react"/>
+      <a href="https://facebook.github.io/react/" target="_blank"><Icon icon="react"/></a>
      
      </div>
      <div style={{

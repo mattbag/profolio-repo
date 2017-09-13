@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 class Icon extends Component {
     render() {
-        console.log(this.props.icon)
+        // console.log(this.props.icon)
         const _w = 30
         const _h = 30
         switch (this.props.icon) {
@@ -27,10 +28,13 @@ class Icon extends Component {
                     <svg xmlns="http://www.w3.org/2000/svg" height={_h} fill="#744c9e" viewBox="0 0 1200 1200"><path d="M600 28.644C284.45 28.644 28.644 284.448 28.644 600c0 315.553 255.806 571.356 571.356 571.356 315.553 0 571.356-255.804 571.356-571.356S915.553 28.644 600 28.644zM151.414 605.956l442.63 442.63c-243.055-3.168-439.463-199.576-442.63-442.63zm549.003 431.414L162.63 499.583C208.232 300.143 386.734 151.34 600 151.34c149.077 0 281.147 72.726 362.734 184.615l-62.12 54.812C834.434 295.86 724.478 233.747 600 233.747c-158.485 0-293.447 100.667-344.46 241.544l469.17 469.17C838.648 903.2 926.276 807.02 955.624 687.9H761.152V600h287.509c0 213.266-148.8 391.768-348.243 437.37z" /></svg>
                 )
             default:
-                break;
+                return (<span></span>)
         }
 
     }
+}
+Icon.propTypes ={
+    icon: PropTypes.string
 }
 
 export default Icon
