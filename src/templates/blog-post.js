@@ -68,7 +68,7 @@ class BlogPostTemplate extends React.Component {
           maxWidth: rhythm(40),
           padding: topPad,
           backgroundColor: '#eee',
-          boxShadow: '0px 0px 50px 5px rgba(255,255,255,.2)'
+          boxShadow: '0px 0px 0px 5px rgba(255,255,255,.2)'
         }}
       >
         {top}
