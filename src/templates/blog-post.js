@@ -4,11 +4,12 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import { Container } from 'react-responsive-grid'
 
-import './../utils/_icons.scss'
 import Bio from '../components/bio/Bio'
 import { rhythm } from '../utils/typography'
 
+import Icon from './../components/icons/icon'
 import './../utils/cover.scss'
+import './../utils/_icons.scss'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -52,9 +53,12 @@ class BlogPostTemplate extends React.Component {
     }
     let tags
     if (post.frontmatter.tags) {
+      let i = 0
       tags = (
         post.frontmatter.tags.map(tag => {
-          return <i className={tag.toString()} key={tag}></i>
+          i++
+          return (
+            <div key={tag} className="tags__pulse" style={{ animationDelay: `${2 * i}s` }}><Icon icon={tag.toString()} key={tag} /></div>)
         })
       )
     }
@@ -68,6 +72,8 @@ class BlogPostTemplate extends React.Component {
         }}
       >
         {top}
+
+
         <div style={{
           transform: `translateY(${titleY})`
         }}>
@@ -80,11 +86,11 @@ class BlogPostTemplate extends React.Component {
           }}>
             {post.frontmatter.title}
           </h1>
-          <div>
+          <div className="tags">
             {tags}
           </div>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} style={{padding: `2vmin 0`}} />
-       
+          <div dangerouslySetInnerHTML={{ __html: post.html }} style={{ padding: `2vmin 0` }} />
+
           <hr
             style={{
               width: '80%',
@@ -93,7 +99,7 @@ class BlogPostTemplate extends React.Component {
               backgroundColor: '#fff',
             }}
           />
-          
+
           <Bio bio={false} social={true} />
         </div>
       </Container>

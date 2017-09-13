@@ -7,25 +7,14 @@ import "./grid.scss"
 
 import Tile from "../components/tile/Tile"
 import TileEmpty from "../components/tile/TileEmpty"
+import Builtwith from './../components/builtwith/Builtwith'
 // import { rhythm } from "../utils/typography"
 const startY = 20;
 
 class BlogIndex extends Component {
   constructor() {
     super()
-    // if (window.innerWidth >= 1200) {
-    //   this.state = {
-    //     transformY: `-${startY}%`,
-    //     gridHeight: '',
-    //     isMob: false
-    //   }
-    // } else {
-    //   this.state = {
-    //     transformY: '4rem',
-    //     gridHeight: '',
-    //     isMob: true
-    //   }
-    // }
+  
     this.state = {
       transformY: `-${startY}%`,
       gridHeight: '',
@@ -64,12 +53,9 @@ class BlogIndex extends Component {
   }
 
   handleScroll() {
-    // let scrollTop = event.srcElement.body.scrollTop,
-    // let itemTranslate = Math.min(0, window.pageYOffset / 3 - 60);
+ 
     let itemTranslate = window.pageYOffset / 30;
-    // this.setState({
-    //   transformY: -itemTranslate - startY + '%'
-    // });
+   
     document.querySelector('.grid').style.transform = `translateY(${-itemTranslate}%)`
     // console.log(document.querySelector('.grid'))
   }
@@ -118,6 +104,7 @@ class BlogIndex extends Component {
             {this.renderDummy(dummy)}
           </div>
         </div>
+        <Builtwith/>
       </div>
     )
   }
