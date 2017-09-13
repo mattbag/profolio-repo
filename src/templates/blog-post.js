@@ -1,17 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
+// import Link from 'gatsby-link'
 import get from 'lodash/get'
 import { Container } from 'react-responsive-grid'
 
+import './../utils/_icons.scss'
 import Bio from '../components/bio/Bio'
 import { rhythm } from '../utils/typography'
-import wf from './../img/wf.png'
-import cs from './../img/cs.png'
-import angular from './../img/angular.png'
-import ionic from './../img/ionic.png'
-import app from './../img/app.png'
-import wordpress from './../img/wordpress.png'
 
 import './../utils/cover.scss'
 
@@ -46,29 +41,6 @@ class BlogPostTemplate extends React.Component {
             }}
           />
 
-          {/* <img src={wf} alt={post.title}
-                style={{
-                  position: 'absolute',
-                  left: '-10%',
-                  bottom: 0,
-                  zIndex: 0,
-                  width: '80%',
-                  transform: `rotate(-5deg)`,
-                  boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)',
-                }}
-                   />
-                   <img src={wf} alt={post.title}
-                style={{
-                  position: 'absolute',
-                  right: '-10%',
-                  bottom: -20,
-                  zIndex: 0,
-                  width: '80%',
-                  transform: `rotate(5deg)`,
-                  boxShadow: '0px 0px 10px 1px rgba(0,0,0,.3)',
-                  opacity: .9
-                }}
-                   /> */}
         </div>
       )
     }
@@ -76,22 +48,7 @@ class BlogPostTemplate extends React.Component {
     if (post.frontmatter.tags) {
       tags = (
         post.frontmatter.tags.map(tag => {
-          let src
-          switch (tag.toString()) {
-            case 'ionic':
-              src = ionic;
-              break;
-            case 'angular':
-              src = angular;
-              break;
-            case 'app':
-              src = app;
-              break;
-            case 'wordpress':
-              src = wordpress;
-              break;
-          }
-          return <img src={src} alt={tag} key={tag} width="30" />
+          return <i className={tag.toString()} key={tag}></i>
         })
       )
     }
@@ -106,7 +63,7 @@ class BlogPostTemplate extends React.Component {
       >
         {top}
         <div style={{
-          transform: `translateY(-100px)`
+          transform: `translateY(-80px)`
         }}>
           <Helmet title={`${post.frontmatter.title} | ${post.frontmatter.tags} ${siteTitle}`} />
           <h1 style={{
@@ -117,14 +74,7 @@ class BlogPostTemplate extends React.Component {
           }}>
             {post.frontmatter.title}
           </h1>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              marginTop: rhythm(-.75),
-            }}
-          >
-
+          <div>
             {tags}
           </div>
           <div dangerouslySetInnerHTML={{ __html: post.html }} style={{padding: `2vmin 0`}} />

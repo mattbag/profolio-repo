@@ -18,7 +18,7 @@ class Social extends React.Component {
         return (
             <ul className="social" style={{ margin: 0 }}>
                 {links.map(link => {
-                    return <li><a href={link.link} target="_blank" style={aStyle}>{link.name}</a></li>
+                    return <li key={link.name}><a href={link.link} target="_blank" style={aStyle}>{link.name}</a></li>
                 })}
             </ul>
         )

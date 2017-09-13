@@ -1,0 +1,39 @@
+@import './../../node_modules/iconfonts/stylesheets/ionicons';
+// @import './../../node_modules/iconfonts/stylesheets/font-awesome';
+@include ion-font;
+@mixin icon-font-size{
+    font-size: 2rem;
+}
+   .ionic:before {
+     @include ion-icon("ionic");
+     @include icon-font-size;
+   }
+   .angular:before {
+    @include ion-icon("social-angular");
+    @include icon-font-size;
+  }
+  .wordpress:before {
+    @include ion-icon("social-wordpress");
+    @include icon-font-size;
+  }
+//   .react:before {
+//     @include ion-icon("react");
+//   }
+//   .angular:before {
+//    @include ion-icon("angular");
+//  }
+ .appicon:before {
+   @include ion-icon("iphone");
+   @include icon-font-size;
+ }
+ .github:before {
+    @include ion-icon("social-github");
+    @include icon-font-size;
+  }
+   
+//   /* embeds the @font-face. use this only once. */
+//   @include fa-font();
+   
+//   .music:before {
+//     @include fa-icon("music", 14px);
+//   }
