@@ -14,7 +14,7 @@ const startY = 20;
 class BlogIndex extends Component {
   constructor() {
     super()
-  
+
     this.state = {
       transformY: `-${startY}%`,
       gridHeight: '',
@@ -31,9 +31,10 @@ class BlogIndex extends Component {
   }
 
   componentDidMount() {
-    let _width = window.innerWidth >= 1200
-    if (_width) {
-      this.setState({ isMob: !_width })
+    let _isMobOnMount = window.innerWidth >= 1200
+
+    if (_isMobOnMount) {
+      // this.setState({ isMob: _isMobOnMount })
       document.addEventListener('scroll', this.handleScroll);
       this.loadInterval = setTimeout(() => { this.getHeight() }, 200);
 
@@ -41,8 +42,10 @@ class BlogIndex extends Component {
         this.getHeight()
       });
     } else {
-      this.setState({ isMob: _width })
+
     }
+    this.setState({ isMob: !_isMobOnMount })
+    console.log(this.state.isMob)
   }
 
   componentWillUnmount() {
@@ -53,9 +56,9 @@ class BlogIndex extends Component {
   }
 
   handleScroll() {
- 
+
     let itemTranslate = window.pageYOffset / 30;
-   
+
     document.querySelector('.grid').style.transform = `translateY(${-itemTranslate}%)`
     // console.log(document.querySelector('.grid'))
   }
@@ -65,7 +68,8 @@ class BlogIndex extends Component {
     }
   }
   renderDummy(len) {
-    if (this.state.isMob) return
+    console.log(this.state.isMob)
+    if (this.state.isMob) { return }
     let dums = []
     for (var index = 0; index < len; index++) {
       dums.push(<TileEmpty key={index} />)
@@ -104,7 +108,7 @@ class BlogIndex extends Component {
             {this.renderDummy(dummy)}
           </div>
         </div>
-        <Builtwith/>
+        <Builtwith />
       </div>
     )
   }
