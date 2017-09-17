@@ -3,7 +3,8 @@ title: Vola Agency
 date: "2015-05-06T23:46:37.121Z"
 path: "/vola/"
 cover: "./1.jpg"
-tags: ['ionic', 'angular','wordpress']
+tags: []
+link: '/vola'
 ---
 
-Unfortunately, I can't fetch from http, I will update the app asap
+A simple landing page with the first version of Muse, made in a lazy afternoon.

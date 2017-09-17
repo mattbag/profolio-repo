@@ -28,6 +28,7 @@ class BlogIndex extends Component {
     const _h = document.getElementsByClassName('grid')[0].offsetHeight;
     this.setState({ gridHeight: _h })
     // console.log(this.state.gridHeight)
+    // return document.getElementsByClassName('grid')[0].offsetHeight;
   }
 
   componentDidMount() {
@@ -64,6 +65,8 @@ class BlogIndex extends Component {
   }
   createScroller(bool) {
     if (bool) {
+      // try to return the height here
+      // console.log(this.getHeight())
       return (<div className="grid__scroll" style={{ height: this.state.gridHeight }}></div>)
     }
   }
